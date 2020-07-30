@@ -39,4 +39,9 @@ public class DeviceController {
     public ResponseEntity<Object> getByHardwareAddress(@PathVariable (value="hardwareAddress") final String hardwareAddress) {
         return ResponseEntity.ok(this.deviceRepository.findByHardwareAddress(hardwareAddress));
     }
+
+    @RequestMapping(value = "/{Id}", method = RequestMethod.DELETE, produces = "application/json")
+    public void deleteDevice(@PathVariable(value = "Id") final Long Id) {
+        this.deviceRepository.deleteById(Id);
+    }
 }
