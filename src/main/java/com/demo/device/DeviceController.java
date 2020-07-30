@@ -34,4 +34,9 @@ public class DeviceController {
     public ResponseEntity<Object> getById(@PathVariable (value="Id") final Long Id) {
         return ResponseEntity.ok(this.deviceRepository.findById(Id));
     }
+
+    @RequestMapping(value = "/findByMAC/{hardwareAddress}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<Object> getByHardwareAddress(@PathVariable (value="hardwareAddress") final String hardwareAddress) {
+        return ResponseEntity.ok(this.deviceRepository.findByHardwareAddress(hardwareAddress));
+    }
 }
